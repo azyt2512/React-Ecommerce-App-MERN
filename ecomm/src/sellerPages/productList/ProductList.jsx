@@ -11,8 +11,8 @@ export default function ProductList() {
   const sellerId = useSelector((state) => state.user.currentUser?._id)
   const product = useSelector((state) => state.product);
   const products = product ? product.products : []
-  console.log(products);
-  console.log(product);
+  // console.log(products);
+  // console.log(product);
   
   useEffect(() => { 
     getSellerProducts(sellerId,dispatch);

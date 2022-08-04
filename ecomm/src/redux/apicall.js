@@ -47,7 +47,7 @@ export const getProducts = async (cat, dispatch) => {
     const res = await publicRequest.get("products/all?cat=" + cat);
     dispatch(getProductSuccess(res.data));
   } catch (err) {
-    console.log(err);
+    
     dispatch(getProductFailure());
   }
 };

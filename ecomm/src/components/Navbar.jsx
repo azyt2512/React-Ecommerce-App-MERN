@@ -85,7 +85,7 @@ const Navbar = () => {
       e.preventDefault()
       logout(dispatch)
    }
-   console.log(quantity);
+  //  console.log(quantity);
   return (
     <Container>
       <Wrapper>
@@ -97,7 +97,7 @@ const Navbar = () => {
           </SearchContainer>
         </Left>
         <Center>
-          <Logo>LAMA.</Logo>
+          <Logo>ShopSee.</Logo>
         </Center>
         <Right>
           

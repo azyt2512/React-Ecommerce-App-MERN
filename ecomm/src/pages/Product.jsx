@@ -163,10 +163,10 @@ const Product = () => {
  const [prev,setPrev] = useState(useSelector(state=>state.cart.product));
  const handleClick = (e)=>{
   
-  console.log(quantity);
-  console.log(product);
+  // console.log(quantity);
+  // console.log(product);
   let total = product.price * quantity;
-  console.log({prev,total});
+  // console.log({prev,total});
   dispatch(addToCart({product,total}));
  }
 

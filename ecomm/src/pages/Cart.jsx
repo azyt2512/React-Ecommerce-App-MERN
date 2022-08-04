@@ -1,5 +1,6 @@
 import { Add, Remove } from "@material-ui/icons";
 import { useSelector } from "react-redux";
+import { useState } from "react";
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
@@ -156,10 +157,19 @@ const Button = styled.button`
   color: white;
   font-weight: 600;
 `;
+const Error = styled.span`
+   font-size:15px;
+   color:red;
+`;
+const Noerror = styled.span`
+   font-size:15px;
+   color:#20e220;
+`;
 
 const Cart = () => {
   const cart =useSelector(state=>state.cart);
   const user = useSelector(state=>state.user.currentUser);
+  const [error, setError] = useState(0)
 
   async function handleClick (e){
      e.preventDefault();
@@ -170,11 +180,13 @@ const Cart = () => {
       amount: cart.total,
       address:{to:user.email},
     }
-    console.log(Order);
+    // console.log(Order);
     try{
      const res = await userRequest.post("orders/",Order);
-     console.log(res.data);
+     setError(1);
+    //  console.log(res.data);
     }catch(err){
+      setError(2);
       console.log(err);
     }
   }
@@ -219,7 +231,7 @@ const Cart = () => {
                   <ProductAmount>{product.quantity}</ProductAmount>
                   <Remove />
                 </ProductAmountContainer>
-                <ProductPrice>${product.price*product.quantity}</ProductPrice>
+                <ProductPrice>&8377;{product.price*product.quantity}</ProductPrice>
             {/* <Button style={{ width:"27%" }} >REMOVE</Button> */}
               </PriceDetail>
             </Product> 
@@ -247,6 +259,7 @@ const Cart = () => {
               <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
             </SummaryItem>
             <Button onClick={handleClick}>CHECKOUT NOW</Button>
+            {error==1?<Noerror>Order has been fetched Successfully, enjoy shopping &#58;&#41;</Noerror>: error==2?<Error>Ooops Something went Wrong !!! just try again</Error>:""}
           </Summary>
         </Bottom>
       </Wrapper>

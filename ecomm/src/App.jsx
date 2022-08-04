@@ -14,6 +14,7 @@ import Topbar from "./components/topbar/Topbar";
 import { BrowserRouter as  Router, Routes, Route, Navigate } from 'react-router-dom'
 import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { Success } from "./pages/Success";
 
 const Flexcontainer = styled.div`
     display:flex;
@@ -75,7 +76,9 @@ const App = () => {
            
          <Route path="/login" element={user? <Navigate to= "/" /> : <Login />} />
                  
-         <Route path="/register" element={user? <Navigate to= "/" /> :  <Register />} />          
+         <Route path="/register" element={user? <Navigate to= "/" /> :  <Register />} /> 
+
+         <Route path="/success" element={user? <Navigate to= "/" /> :  <Success />} />         
       </Routes>
       </Router> 
        

@@ -73,7 +73,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const dispatch = useDispatch()
   const {isFetching,error} = useSelector(state=>state.user)
-  console.log(isFetching);
+  // console.log(isFetching);
   const handleClick =(e)=>{
       e.preventDefault()
       // const user = {username,password};

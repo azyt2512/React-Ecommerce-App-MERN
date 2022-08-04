@@ -20,7 +20,7 @@ export default function Product() {
   // const location = useLocation();
   // const productId = location.pathname.split("/")[2];
   const productId = useParams().id;
-  console.log(productId);
+  // console.log(productId);
   const [pStats, setPStats] = useState([]);
   
 
@@ -28,7 +28,7 @@ export default function Product() {
     state.product.products.find((product) => product._id === productId )
   );
   const [Uproduct,setUproduct] = useState(product);
-  console.log(product);
+  // console.log(product);
 
   const notUpdated = useSelector(state=>state.product.error);
   const [update,setUpdate] = useState(false);
