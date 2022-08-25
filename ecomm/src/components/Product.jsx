@@ -44,11 +44,13 @@ const Circle = styled.div`
   border-radius: 50%;
   background-color: white;
   position: absolute;
+  z-index: -20;
 `;
 
 const Image = styled.img`
-  height: 75%;
-  z-index: 2;
+  height: 350px;
+  min-width: 280px;
+  z-index: -1;
 `;
 
 const Icon = styled.div`
@@ -68,7 +70,8 @@ const Icon = styled.div`
 `;
 
 const Product = ({ item }) => {
-  // const imageURL=`../images/${item?.img}` ;
+  const imageURL=`images/${item?.img}` ;
+  //{`${imageURL}`}
   // let productLink="/product/" + item;
   console.log(item);
   return (
@@ -76,7 +79,7 @@ const Product = ({ item }) => {
       <Container>
       <Link to={`/product/${item._id}`}>  
       <Circle />
-      <Image src={item.img} />
+      <Image src ={`${imageURL}`}/>
       <Info>
         <Icon>
          

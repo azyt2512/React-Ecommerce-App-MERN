@@ -6,6 +6,7 @@ import WidgetSm from "../../components/widgetSm/WidgetSm";
 import WidgetLg from "../../components/widgetLg/WidgetLg";
 import { useEffect, useMemo, useState } from "react";
 import { userRequest } from "../../importMethods";
+import {useSelector} from "react-redux";
 
 export default function Home() {
   const [userStats, setUserStats] = useState([]);
@@ -27,11 +28,11 @@ export default function Home() {
     ],
     []
   );
-
+  const s_id = useSelector(state=>state.user.currentUser._id);
   useEffect(() => {
     const getStats = async () => {
       try {
-        const res = await userRequest.get("/users/stats");
+        const res = await userRequest.get("/orders/stats/");
         res.data.map((item) =>
           setUserStats((prev) => [
             ...prev,

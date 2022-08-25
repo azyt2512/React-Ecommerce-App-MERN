@@ -231,7 +231,7 @@ const Cart = () => {
                   <ProductAmount>{product.quantity}</ProductAmount>
                   <Remove />
                 </ProductAmountContainer>
-                <ProductPrice>&8377;{product.price*product.quantity}</ProductPrice>
+                <ProductPrice>₹{product.price*product.quantity}</ProductPrice>
             {/* <Button style={{ width:"27%" }} >REMOVE</Button> */}
               </PriceDetail>
             </Product> 
@@ -244,19 +244,19 @@ const Cart = () => {
             <SummaryTitle>ORDER SUMMARY</SummaryTitle>
             <SummaryItem>
               <SummaryItemText>Subtotal</SummaryItemText>
-              <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
+              <SummaryItemPrice>₹ {cart.total}</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem>
               <SummaryItemText>Estimated Shipping</SummaryItemText>
-              <SummaryItemPrice>$ 5.90</SummaryItemPrice>
+              <SummaryItemPrice>₹ 50.90</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem>
               <SummaryItemText>Shipping Discount</SummaryItemText>
-              <SummaryItemPrice>$ -5.90</SummaryItemPrice>
+              <SummaryItemPrice>₹ -50.90</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem type="total">
               <SummaryItemText>Total</SummaryItemText>
-              <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
+              <SummaryItemPrice>₹ {cart.total}</SummaryItemPrice>
             </SummaryItem>
             <Button onClick={handleClick}>CHECKOUT NOW</Button>
             {error==1?<Noerror>Order has been fetched Successfully, enjoy shopping &#58;&#41;</Noerror>: error==2?<Error>Ooops Something went Wrong !!! just try again</Error>:""}
